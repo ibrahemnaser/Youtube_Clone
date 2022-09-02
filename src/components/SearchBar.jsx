@@ -11,19 +11,18 @@ const SearchBar = () => {
       sx={{
         borderRadius: 20,
         border: "1px solid #e3e3e3",
-        pl: 2,
+        px: 2,
         boxShadow: "none",
-        mr: { sm: 5 },
       }}
     >
       <input
         type="text"
         className="search-bar"
-        placeholder="Search..."
+        placeholder="بحث..."
         value=""
         onChange={() => {}}
       />
-      <IconButton type="submit" sx={{ p: "10px", color: "red" }}>
+      <IconButton type="submit" sx={{ px: "0px", py: "10px", color: "red" }}>
         <Search />
       </IconButton>
     </Paper>
