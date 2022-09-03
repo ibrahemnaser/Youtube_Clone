@@ -14,11 +14,11 @@ const Feed = () => {
   const { t } = useTranslation();
   const { languageDetected: lang } = useContext(LanguageContext);
   const [selectedCategory, setSelectedCategory] = useState("New");
-  const [videos] = useState([]);
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     getDataFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-      console.log(data)
+      setVideos(data.items)
     );
   }, [selectedCategory]);
 
@@ -41,9 +41,7 @@ const Feed = () => {
           variant="body2"
           sx={{ mt: 1.5, color: "#fff" }}
         >
-          {lang === "en"
-            ? `Copyrights reserved ${year} `
-            : `حقوق الملكية محفوظة ${year} `}
+          {lang === "en" ? `Copyrights ${year} ` : `حقوق الملكية  ${year} `}
           <span style={{ color: "red", fontWeight: "bold" }}>MyTube</span>
         </Typography>
       </Box>
@@ -51,6 +49,10 @@ const Feed = () => {
         sx={{
           overflowY: "auto",
           height: "90vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          flex: "1",
         }}
       >
         <Typography

@@ -14,6 +14,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
         overflowY: "auto",
         height: { sx: "auto", md: "95%" },
         flexDirection: { md: "column" },
+        width: { md: "160px" },
       }}
     >
       {categories.map((category, index) => (
@@ -31,7 +32,6 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
           <span
             style={{
               color: category.name === selectedCategory ? "white" : "red",
-              margin: "0 15px",
             }}
           >
             {category.icon}
