@@ -4,9 +4,7 @@ import { categories } from "../utils/constants";
 // language
 import { useTranslation } from "react-i18next";
 
-const selectedCategory = "New";
-
-const Sidebar = () => {
+const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
   const { t } = useTranslation();
 
   return (
@@ -22,6 +20,9 @@ const Sidebar = () => {
         <button
           key={index}
           className="category-btn"
+          onClick={() => {
+            setSelectedCategory(category.name);
+          }}
           style={{
             color: "white",
             backgroundColor: category.name === selectedCategory && "#FC1503",

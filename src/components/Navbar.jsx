@@ -1,7 +1,7 @@
 import { Box, Button, Stack } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { LanguageContext } from "../contexts/languageContext";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
 import { logo } from "../utils/constants";
 import { SearchBar } from "./";
 
@@ -9,7 +9,8 @@ import { SearchBar } from "./";
 import i18n from "i18next";
 
 const Navbar = () => {
-  const lang = Cookies.get("i18next");
+  const { languageDetected: lang, setLanguageDetected } =
+    useContext(LanguageContext);
 
   const [pageDirection, setPageDirection] = useState(
     lang === "ar" ? "rtl" : "ltr"
@@ -19,9 +20,11 @@ const Navbar = () => {
     if (pageDirection === "ltr") {
       setPageDirection("rtl");
       i18n.changeLanguage("ar");
+      setLanguageDetected("ar");
     } else {
       setPageDirection("ltr");
       i18n.changeLanguage("en");
+      setLanguageDetected("en");
     }
   }
 
@@ -59,7 +62,7 @@ const Navbar = () => {
           onClick={changeDirection}
           sx={{ color: "white" }}
         >
-          {pageDirection === "rtl" ? "En" : "Ar"}
+          {lang === "ar" ? "En" : "Ar"}
         </Button>
       </Box>
     </Stack>
