@@ -1,3 +1,22 @@
 {
-  "welcome": "Hello"
+  "welcome": "Hello",
+  "categories": {
+    "New": "New",
+    "JS Mastery": "JS Mastery",
+    "Coding": "Coding",
+    "ReactJS": "ReactJS",
+    "NextJS": "NextJS",
+    "Music": "Music",
+    "Education": "Education",
+    "Podcast": "Podcast",
+    "Movie": "Movie",
+    "Gaming": "Gaming",
+    "Live": "Live",
+    "Sport": "Sport",
+    "Fashion": "Fashion",
+    "Beauty": "Beauty",
+    "Comedy": "Comedy",
+    "Gym": "Gym",
+    "Crypto": "Crypto"
+  }
 }

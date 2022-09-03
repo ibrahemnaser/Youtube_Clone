@@ -1,3 +1,22 @@
 {
-  "welcome": "مرحبا"
+  "welcome": "مرحبا",
+  "categories": {
+    "New": "جديد",
+    "JS Mastery": "قناتي",
+    "Coding": "برمجة",
+    "ReactJS": "ريأكت",
+    "NextJS": "نيكست",
+    "Music": "موسيقى",
+    "Education": "تعليم",
+    "Podcast": "بودكاست",
+    "Movie": "أفلام",
+    "Gaming": "ألعاب",
+    "Live": "مباشر",
+    "Sport": "رياضة",
+    "Fashion": "موضة",
+    "Beauty": "جمال",
+    "Comedy": "كوميدي",
+    "Gym": "جيم",
+    "Crypto": "مشفر"
+  }
 }

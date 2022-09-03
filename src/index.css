@@ -25,6 +25,17 @@ a {
   background-color: transparent;
 }
 
+.lang-btn {
+  right: 0;
+  border-top-left-radius: 50px !important;
+  border-bottom-left-radius: 50px !important;
+}
+.lang-btn_ar {
+  left: 0;
+  border-top-right-radius: 50px !important;
+  border-bottom-right-radius: 50px !important;
+}
+
 .category-btn:hover {
   background-color: #fc1503 !important;
   color: white !important;

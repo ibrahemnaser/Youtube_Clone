@@ -1,9 +1,16 @@
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import { Paper, IconButton } from "@mui/material";
 import { Search } from "@mui/icons-material";
+import Cookies from "js-cookie";
 
-const SearchBar = () => {
+const SearchBar = ({ pageDir }) => {
+  const [lang, setLang] = useState(Cookies.get("i18next"));
+
+  useEffect(() => {
+    setLang(Cookies.get("i18next"));
+  }, [pageDir]);
+
   return (
     <Paper
       component="form"
@@ -18,7 +25,7 @@ const SearchBar = () => {
       <input
         type="text"
         className="search-bar"
-        placeholder="بحث..."
+        placeholder={lang === "ar" ? "بحث..." : "Search..."}
         value=""
         onChange={() => {}}
       />
