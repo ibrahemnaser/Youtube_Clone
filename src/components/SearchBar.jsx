@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 // import { useNavigate } from "react-router-dom";
 import { Paper, IconButton } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import Cookies from "js-cookie";
+import { ModeContext } from "../contexts/contexts";
 
 const SearchBar = ({ pageDir }) => {
   const [lang, setLang] = useState(Cookies.get("i18next"));
+  const { mode } = useContext(ModeContext);
 
   useEffect(() => {
     setLang(Cookies.get("i18next"));
@@ -25,8 +27,11 @@ const SearchBar = ({ pageDir }) => {
       <input
         type="text"
         className="search-bar"
+        style={{
+          backgroundColor: "transparent",
+          color: mode === "light" ? "black" : "white",
+        }}
         placeholder={lang === "ar" ? "بحث..." : "Search..."}
-        value=""
         onChange={() => {}}
       />
       <IconButton type="submit" sx={{ px: "0px", py: "10px", color: "red" }}>

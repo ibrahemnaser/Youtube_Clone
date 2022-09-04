@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { LanguageContext } from "../contexts/languageContext";
+import { LanguageContext } from "../contexts/contexts";
 import { Box, Stack, Typography } from "@mui/material";
 import { Sidebar, Videos } from "./";
 
@@ -23,12 +23,15 @@ const Feed = () => {
   }, [selectedCategory]);
 
   return (
-    <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
+    <Stack sx={{ flexDirection: { sx: "column", md: "row" }, columnGap: 4 }}>
       <Box
         sx={{
           height: { sx: "auto", md: "90vh" },
-          borderRight: "1px solid #3d3d3d",
-          borderLeft: "1px solid #3d3d3d",
+          borderColor: "primary.main",
+          borderRightStyle: "solid",
+          borderLeftStyle: "solid",
+          borderRightWidth: "1px",
+          borderLeftWidth: "1px",
           px: { sx: 0, md: 2 },
         }}
       >

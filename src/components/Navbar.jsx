@@ -1,6 +1,6 @@
 import { Box, Button, Stack } from "@mui/material";
 import { useState, useEffect, useContext } from "react";
-import { LanguageContext } from "../contexts/languageContext";
+import { LanguageContext, ModeContext } from "../contexts/contexts";
 import { Link } from "react-router-dom";
 import { logo } from "../utils/constants";
 import { SearchBar } from "./";
@@ -11,6 +11,8 @@ import i18n from "i18next";
 const Navbar = () => {
   const { languageDetected: lang, setLanguageDetected } =
     useContext(LanguageContext);
+
+  const { mode, setMode } = useContext(ModeContext);
 
   const [pageDirection, setPageDirection] = useState(
     lang === "ar" ? "rtl" : "ltr"
@@ -28,6 +30,10 @@ const Navbar = () => {
     }
   }
 
+  function changeMode() {
+    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  }
+
   useEffect(() => {
     document.documentElement.dir = pageDirection || "ltr";
   }, [pageDirection]);
@@ -39,7 +45,7 @@ const Navbar = () => {
       p={2}
       sx={{
         position: "sticky",
-        backgroundColor: "#000",
+        backgroundColor: "primary.main",
         top: 0,
         justifyContent: "space-between",
       }}
@@ -48,13 +54,14 @@ const Navbar = () => {
         <img src={logo} alt="logo" height={45} />
       </Link>
       <SearchBar pageDir={pageDirection} />
+      {/* Language && Dark mode */}
       <Box
         className={pageDirection === "ltr" ? "lang-btn" : "lang-btn_ar"}
         sx={{
           position: "fixed",
           top: "200px",
           zIndex: 99,
-          backgroundColor: "red",
+          backgroundColor: "secondary.dark",
         }}
       >
         <Button
@@ -63,6 +70,13 @@ const Navbar = () => {
           sx={{ color: "white" }}
         >
           {lang === "ar" ? "En" : "Ar"}
+        </Button>
+        <Button
+          className={pageDirection === "ltr" ? "lang-btn" : "lang-btn_ar"}
+          sx={{ color: "white" }}
+          onClick={changeMode}
+        >
+          {mode === "light" ? "Dark" : "Light"}
         </Button>
       </Box>
     </Stack>
