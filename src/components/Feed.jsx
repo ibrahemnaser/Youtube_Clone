@@ -13,7 +13,7 @@ const Feed = () => {
   const year = new Date().getFullYear();
   const { t } = useTranslation();
   const { languageDetected: lang } = useContext(LanguageContext);
-  const [selectedCategory, setSelectedCategory] = useState("New");
+  const [selectedCategory, setSelectedCategory] = useState("Ahly");
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {

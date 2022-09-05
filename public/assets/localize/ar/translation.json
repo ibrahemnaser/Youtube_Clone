@@ -1,21 +1,21 @@
 {
   "categories": {
-    "New": "جديد",
+    "Ahly": "الأهلي",
     "Elzero Web School": "قناتي",
     "Coding": "برمجة",
     "ReactJS": "ريأكت",
     "NextJS": "نيكست",
     "Quran": "قرآن",
     "Education": "تعليم",
-    "Podcast": "بودكاست",
-    "Movie": "أفلام",
+    "Politics": "سياسة",
+    "Documentary": "وثائقي",
     "Gaming": "ألعاب",
-    "Live": "مباشر",
-    "Sport": "رياضة",
-    "Fashion": "موضة",
-    "Beauty": "جمال",
+    "Nature": "طبيعة",
+    "Football": "كرة قدم",
+    "Egypt": "مصر",
+    "Ecomonics": "اقتصاد",
     "Comedy": "كوميدي",
-    "Gym": "جيم",
-    "Crypto": "مشفر"
+    "Food": "طعام",
+    "Crypto": "عملات رقمية"
   }
 }

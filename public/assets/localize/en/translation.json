@@ -1,21 +1,21 @@
 {
   "categories": {
-    "New": "New",
+    "Ahly": "Ahly",
     "Elzero Web School": "Elzero School",
     "Coding": "Coding",
     "ReactJS": "ReactJS",
     "NextJS": "NextJS",
     "Quran": "Quran",
     "Education": "Education",
-    "Podcast": "Podcast",
-    "Movie": "Movie",
+    "Politics": "Politics",
+    "Documentary": "Documentary",
     "Gaming": "Gaming",
-    "Live": "Live",
-    "Sport": "Sport",
-    "Fashion": "Fashion",
-    "Beauty": "Beauty",
+    "Nature": "Nature",
+    "Football": "Football",
+    "Egypt": "Egypt",
+    "Ecomonics": "Ecomonics",
     "Comedy": "Comedy",
-    "Gym": "Gym",
+    "Food": "Food",
     "Crypto": "Crypto"
   }
 }
