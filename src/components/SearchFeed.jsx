@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { LanguageContext } from "../contexts/contexts";
-import { Videos } from "./";
+import { Videos, Loader } from "./";
 
 // fetch data
 import { getDataFromAPI } from "../utils/rapidAPIData";
@@ -12,11 +12,20 @@ const SearchFeed = () => {
   const { languageDetected: lang } = useContext(LanguageContext);
   const [videos, setVideos] = useState([]);
 
+  const handleFetch = (pageToken = null, search = searchTerm) => {
+    getDataFromAPI(
+      `search?part=snippet&q=${search}${
+        pageToken ? `&pageToken=${pageToken}` : ""
+      }`
+    ).then((data) => setVideos(data));
+  };
+
   useEffect(() => {
-    getDataFromAPI(`search?part=snippet&q=${searchTerm}`).then((data) =>
-      setVideos(data.items)
-    );
+    handleFetch(null, searchTerm);
   }, [searchTerm]);
+
+  if (!videos) return <Loader />;
+  const { items, nextPageToken, prevPageToken } = videos;
 
   return (
     <Box
@@ -41,7 +50,13 @@ const SearchFeed = () => {
         <span>{lang === "en" ? " Search Results: " : "نتائج بحث: "} </span>
         <span style={{ color: "red", margin: "0 7px" }}>{searchTerm}</span>
       </Typography>
-      <Videos justifyContent="center" videos={videos} />
+      <Videos
+        justifyContent="center"
+        videos={items}
+        handleFetch={handleFetch}
+        nextPage={nextPageToken}
+        prevPage={prevPageToken}
+      />
     </Box>
   );
 };

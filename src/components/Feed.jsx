@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { LanguageContext } from "../contexts/contexts";
 import { Box, Stack, Typography } from "@mui/material";
-import { Sidebar, Videos } from "./";
+import { Sidebar, Videos, Loader } from "./";
 
 // language translator
 import { useTranslation } from "react-i18next";
@@ -13,14 +13,23 @@ const Feed = () => {
   const year = new Date().getFullYear();
   const { t } = useTranslation();
   const { languageDetected: lang } = useContext(LanguageContext);
-  const [selectedCategory, setSelectedCategory] = useState("Ahly");
-  const [videos, setVideos] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("Egypt");
+  const [videos, setVideos] = useState(null);
+
+  const handleFetch = (pageToken = null, category = selectedCategory) => {
+    getDataFromAPI(
+      `search?part=snippet&q=${category}${
+        pageToken ? `&pageToken=${pageToken}` : ""
+      }`
+    ).then((data) => setVideos(data));
+  };
 
   useEffect(() => {
-    getDataFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-      setVideos(data.items)
-    );
+    handleFetch(null, selectedCategory);
   }, [selectedCategory]);
+
+  if (!videos) return <Loader />;
+  const { items, nextPageToken, prevPageToken } = videos;
 
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" }, columnGap: 4 }}>
@@ -72,7 +81,12 @@ const Feed = () => {
             {lang === "en" ? " Videos" : " فيديوهات"}
           </span>
         </Typography>
-        <Videos videos={videos} />
+        <Videos
+          videos={items}
+          handleFetch={handleFetch}
+          nextPage={nextPageToken}
+          prevPage={prevPageToken}
+        />
       </Box>
     </Stack>
   );
