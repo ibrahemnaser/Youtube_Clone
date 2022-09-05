@@ -1,8 +1,7 @@
 {
-  "welcome": "Hello",
   "categories": {
     "New": "New",
-    "JS Mastery": "JS Mastery",
+    "Elzero Web School": "Elzero School",
     "Coding": "Coding",
     "ReactJS": "ReactJS",
     "NextJS": "NextJS",

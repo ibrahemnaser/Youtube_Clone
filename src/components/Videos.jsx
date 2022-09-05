@@ -10,15 +10,18 @@ const Videos = ({ videos, justifyContent }) => {
       gap={2}
     >
       {videos.map((item, indx) => {
-        return (
-          <Box
-            key={indx}
-            sx={{ width: { xs: "100%", sm: "358px", md: "320px" } }}
-          >
-            {item.id.videoId && <VideoCard video={item} />}
-            {item.id.channelId && <ChannelCard channelDetail={item} />}
-          </Box>
-        );
+        if (!item.id.playlistId) {
+          return (
+            <Box
+              key={indx}
+              sx={{ width: { xs: "100%", sm: "358px", md: "320px" } }}
+            >
+              {item.id.videoId && <VideoCard video={item} />}
+              {item.id.channelId && <ChannelCard channelDetail={item} />}
+            </Box>
+          );
+        }
+        return null;
       })}
     </Stack>
   );
