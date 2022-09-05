@@ -27,11 +27,10 @@ const Feed = () => {
       <Box
         sx={{
           height: { sx: "auto", md: "90vh" },
-          borderColor: "primary.main",
-          borderRightStyle: "solid",
-          borderLeftStyle: "solid",
-          borderRightWidth: "1px",
-          borderLeftWidth: "1px",
+          backgroundColor: "primary.main",
+          borderColor: "primary.light",
+          borderStyle: "solid",
+          borderWidth: "0 1px",
           px: { sx: 0, md: 2 },
         }}
       >
@@ -42,7 +41,7 @@ const Feed = () => {
         <Typography
           className="copyright"
           variant="body2"
-          sx={{ mt: 1.5, color: "#fff" }}
+          sx={{ mt: 1.5, color: "primary.contrastText" }}
         >
           {lang === "en" ? `Copyrights ${year} ` : `حقوق الملكية  ${year} `}
           <span style={{ color: "red", fontWeight: "bold" }}>MyTube</span>
@@ -62,7 +61,7 @@ const Feed = () => {
           variant="h4"
           sx={{
             p: 2,
-            color: "white",
+            color: "primary.contrastText",
             fontWeight: "bold",
             display: "flex",
             flexDirection: `${lang === "en" ? "row" : "row-reverse"}`,

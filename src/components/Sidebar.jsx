@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { categories } from "../utils/constants";
 
 // language
@@ -18,15 +18,20 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
       }}
     >
       {categories.map((category, index) => (
-        <button
+        <Box
+          component="button"
           key={index}
           className="category-btn"
           onClick={() => {
             setSelectedCategory(category.name);
           }}
-          style={{
-            color: "white",
-            backgroundColor: category.name === selectedCategory && "#FC1503",
+          sx={{
+            color:
+              category.name === selectedCategory
+                ? "secondary.contrastText"
+                : "primary.contrastText",
+            backgroundColor:
+              category.name === selectedCategory && "secondary.main",
           }}
         >
           <span
@@ -43,7 +48,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
           >
             {t(`categories.${category.name}`)}
           </span>
-        </button>
+        </Box>
       ))}
     </Stack>
   );

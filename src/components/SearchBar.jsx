@@ -18,8 +18,8 @@ const SearchBar = ({ pageDir }) => {
       component="form"
       onSubmit={() => {}}
       sx={{
+        backgroundColor: mode === "light" ? "white" : "primary.main",
         borderRadius: 20,
-        border: "1px solid #e3e3e3",
         px: 2,
         boxShadow: "none",
       }}

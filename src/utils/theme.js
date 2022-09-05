@@ -4,8 +4,8 @@ export const getDesignTokens = (mode) => ({
     ...(mode === "dark"
       ? {
           primary: {
-            light: "#484848",
-            main: "#212121",
+            light: "#3c3c3c",
+            main: "#161616",
             dark: "#000000",
             contrastText: "#ffffff",
           },
@@ -19,8 +19,8 @@ export const getDesignTokens = (mode) => ({
       : {
           primary: {
             light: "#efefef",
-            main: "#bdbdbd",
-            dark: "#8d8d8d",
+            main: "#e0e0e0",
+            dark: "#bdbdbd",
             contrastText: "#000000",
           },
           secondary: {
