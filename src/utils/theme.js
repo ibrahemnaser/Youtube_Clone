@@ -8,6 +8,7 @@ export const getDesignTokens = (mode) => ({
             main: "#161616",
             dark: "#000000",
             contrastText: "#ffffff",
+            secContrast: "rgba(255 255 255 / 70%)",
           },
           secondary: {
             light: "#ff5231",
@@ -22,6 +23,7 @@ export const getDesignTokens = (mode) => ({
             main: "#e0e0e0",
             dark: "#bdbdbd",
             contrastText: "#000000",
+            secContrast: "rgba(0 0 0 / 70%)",
           },
           secondary: {
             light: "#ff5231",
