@@ -1,5 +1,5 @@
 # Youtube-Clone
-This is a multilingual (ar-en) youtube clone Reactjs project styled with Materual UI using Rapid API Youtubev3
+This is a multilingual (ar-en) youtube clone Reactjs project styled with Material UI using Rapid API Youtubev3
 
 [Live Demo](https://mytube-clone.netlify.app/)
 
